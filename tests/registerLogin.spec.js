@@ -15,7 +15,7 @@ let loginPassword = password;
 test.describe.configure({ mode: "serial" });
 
 test.describe("register test", () => {
-  test.beforeEach("visi page and validte", async ({ page }) => {
+  test.beforeEach("visit page and validate", async ({ page }) => {
     //visit page and validate
     await page.goto(URLS["REGISTER"]);
     //Instantiate POM class
@@ -34,7 +34,7 @@ test.describe("register test", () => {
   });
 
   test.describe("login test", () => {
-    test.beforeEach("visi page and validte", async ({ page }) => {
+    test.beforeEach("visit page and validate", async ({ page }) => {
       //visit page and validate
       await page.goto(URLS["LOGIN"]);
       //Instantiate POM class
