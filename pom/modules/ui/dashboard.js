@@ -13,18 +13,6 @@ export class Dashboard {
       this.noItemsMessage = page.locator("div.z-10.text-4xl.font-bold:has-text('No items in cart. Add some!')");
     }
   
-    //extract individual elements from a product
-    getProductElements = async (productLocator, elementLocator) => {
-      const productCards = productLocator;
-      const cardCount = await productCards.count();
-      const elements = [];
-      for (let i = 0; i < cardCount; i++) {
-        const element = productCards.nth(i).locator(elementLocator);
-        elements.push(element);
-      }
-      return elements;
-    };
-  
     //get data for products on single page
     getProductData = async (dashboard) => {
       const productData = [];

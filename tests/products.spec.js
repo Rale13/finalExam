@@ -6,7 +6,7 @@ import { generateUserCredentials } from "../fixtures/userData";
 import { URLS } from "../fixtures/pages";
 import { shuffleArray } from "../fixtures/utils";
 
-let dashboard, loginPage, header, cards;
+let dashboard, loginPage, header;
 const { registeredEmail, registeredPassword } = generateUserCredentials();
 
 test.describe("products tests", () => {
@@ -22,10 +22,9 @@ test.describe("products tests", () => {
     //assert that all elements are loaded
     await page.waitForURL(URLS["DASHBOARD"]);
     await page.waitForSelector(header.loader, { state: "hidden" });
-    cards = dashboard.productLocator;
   });
 
-  test("add 3 random products to cart and adjust quantities", async ({ page }) => {
+  test("add 3 random products to cart and adjust quantities", async () => {
     const products = await dashboard.getProductData(dashboard);
     const randomProducts = shuffleArray(products, 3);
     const quantities = [3, 5, 7];

@@ -19,13 +19,13 @@ test.describe("customers API test", () => {
     const customerToUpdate = await customersAPI.getCustomerShippingInfo(userId);
     const response = await customersAPI.updateCustomerShippingInfo(userId, {
       first_name: generateRandomString(3),
-      last_name: "Peric",
-      email: "john.dovic@gmail.com",
-      street_and_number: "123 Main St",
-      phone_number: "+1234567890",
-      city: "Springfield",
+      last_name: generateRandomString(5),
+      email: `${generateRandomString(3)}@gmail.com`,
+      street_and_number: "",
+      phone_number: "",
+      city: "",
       postal_code: 12345,
-      country: "USA",
+      country: generateRandomString(4),
     });
     expect(response.status).toBe(STATUS["SUCCESS"]);
     expect(customerToUpdate.shipping_info.first_name).not.toBe(
